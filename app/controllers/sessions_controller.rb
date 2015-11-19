@@ -9,14 +9,14 @@ class SessionsController < ApplicationController
     params[:user][:email],
     params[:user][:password]
     )
-    redirect_to user_path(user.id)
+
 
     if user.nil?
       flash.now[:errors] = ["you are dumb"]
       render :new
     else
       log_in_user!(user)
-      # redirect_to user_url(user.id)
+      redirect_to user_url(user.id)
     end
   end
 
