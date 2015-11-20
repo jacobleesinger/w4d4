@@ -1,0 +1,45 @@
+<h1>Add a Track</h1>
+<div>
+  <form  action="<%= tracks_url %>" method="post">
+    <div>
+      <label for="track_name">Track Name</label>
+      <input type="text" id="track_name" name="tracks[name]">
+
+      <input type="submit" value="Create Track">
+    </div>
+
+    <br><br>
+
+    <div>
+      <label for="track_album">Album</label>
+      <select name ="tracks[album_id]" id="track_album">
+        <option></option>
+        <% Album.all.each do |album| %>
+          <option value="<%= album.id %>">
+            <%= album.name %>
+          </option>
+        <% end %>
+      </select>
+    </div>
+
+    <div>
+      <label for="track_lyrics">Track Lyrics</label>
+      <textarea name="tracks[lyrics]" id="track_lyrics">
+      </textarea>
+    </div>
+
+    <div>
+      <input type="radio"
+      name="tracks[kind]"
+      value="bonus"
+      id="track_kind_bonus">
+      <label for="track_kind_bonus">Bonus</label>
+
+      <input type="radio"
+      name="tracks[kind]"
+      value="regular"
+      id="track_kind_regular">
+      <label for="track_kind_live">Regular</label>
+    </div>
+  </form>
+</div>

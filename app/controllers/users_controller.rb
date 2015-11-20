@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       flash.now[:errors] = @user.errors.full_messages
       render :new
     end
+    # Render flash in apphtmlerb
 
   end
 
